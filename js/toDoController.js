@@ -6,8 +6,12 @@ toDoListApp.controller('toDoController', function($scope){
 
   $scope.add = function(){
     $scope.allTasks.push({
-      task: $scope.newTask.task,
+      task: $scope.newTask,
       done: false
     })
+    $scope.newTask = '';
   }
+
+
+
 });

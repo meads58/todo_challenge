@@ -23,17 +23,30 @@ describe('toDoController', function() {
     })
 
     it('can add one task item', function() {
-      scope.newTask = "get some milk"
-      scope.add()
+      setUpHelper();
       expect(scope.allTasks[0].task).toEqual(task[0].task)
     })
 
-    it('are added to not done', function(){
-      scope.newTask = "get some milk"
+    it('can not enter the same task twice.', function() {
+      setUpHelper();
       scope.add()
-      expect(scope.allTasks[0].done).toEqual(task[0].done)
-
+      expect(scope.allTasks.length).toEqual(1)
     })
 
   })
+
+  describe('status of task.', function() {
+
+    it('Is set to not done when created.', function(){
+      setUpHelper();
+      expect(scope.allTasks[0].done).toEqual(false)
+    })
+
+  })
+
+  setUpHelper= function() {
+    scope.newTask = "get some milk";
+    scope.add();
+  }
+
 })

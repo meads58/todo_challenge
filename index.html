@@ -8,18 +8,23 @@
   <meta charset="UTF-8">
   <title>toDo Lister</title>
 </head>
+
 <body ng-controller="toDoController">
-<form>
-  <input type="text" ng-model="newTask.text">
-  <button id="new_task" ng-click="add()">Add item</button>
+
+<form name="frm">
+  <input type="text" ng-model="newTask" required>
+  <button id="new_task" ng-disabled="frm.$invalid" ng-click="add()">Add item</button>
 </form>
+
   <div >
     <ul>
       <li ng-repeat="taskItem in allTasks">
-        <input type="checkbox" ng-model="newTask.done">
+        <input ng-class="completed" type="checkbox" ng-model="taskItem.done">
         {{taskItem.task}}
       </li>
     </ul>
   <div>
+
 </body>
+
 </html>
