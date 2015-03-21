@@ -1,4 +1,4 @@
-Do you forget what key tasks you need to get done?, would a list be handy to keep track of these need to do tasks?
+Do you ever forget what key tasks need doing, would a list be handy to keep track of these need to do tasks?
 
 If this is you then the toDo list is for you.
 
