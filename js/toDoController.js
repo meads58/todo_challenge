@@ -12,6 +12,19 @@ toDoListApp.controller('toDoController', function($scope){
     $scope.newTask = '';
   }
 
+  $scope.editTask = function(){
+    $scope
+  }
+
+  $scope.removeTask = function(index) {
+    if($scope.allTasks[index].done === true){
+      $scope.allTasks.splice(index,1)
+    }
+  }
+
+  $scope.setChecked = function(index){
+    $scope.allTasks[index].done = true
+  }
 
 
 });

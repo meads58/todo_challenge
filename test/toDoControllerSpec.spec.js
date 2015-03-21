@@ -36,6 +36,28 @@ describe('toDoController', function() {
       expect(scope.allTasks[0].done).toEqual(false)
     })
 
+    it('The status can be changed to done.', function() {
+      setUpHelper();
+      scope.setChecked(0);
+      expect(scope.allTasks[0].done).toEqual(true)
+    })
+
+  })
+
+  describe('remove a task.', function() {
+    it('A task can be deleted from the list of tasks', function() {
+      setUpHelper();
+      setUpHelper();
+      scope.setChecked(1);
+      scope.removeTask(1);
+      expect(scope.allTasks.length).toBe(1)
+    })
+
+    it('Can only remove tasks that are done.', function() {
+      setUpHelper();
+      scope.removeTask(0);
+      expect(scope.allTasks.length).toBe(1)
+    })
   })
 
   setUpHelper= function() {

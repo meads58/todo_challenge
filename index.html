@@ -19,8 +19,9 @@
   <div >
     <ul>
       <li ng-repeat="taskItem in allTasks">
-        <input ng-class="completed" type="checkbox" ng-model="taskItem.done">
-        {{taskItem.task}}
+        <input id="completed" type="checkbox" ng-change="setChecked($index)" ng-model="done">
+        <input type="text" ng-model="taskItem.task">
+        <input type="submit" ng-click="removeTask($index)">
       </li>
     </ul>
   <div>

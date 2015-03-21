@@ -10,4 +10,4 @@ before_install:
 - 'npm install -g bower grunt-cli karma'
 - 'bower install'
 script:
-- "grunt"
+
