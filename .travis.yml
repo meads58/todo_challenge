@@ -9,6 +9,5 @@ before_install:
 - "npm install grunt-contrib-jasmine"
 - 'npm install -g bower grunt-cli karma'
 - 'bower install'
-- "echo \"module.exports=function(grunt){grunt.initConfig({jasmine:{src:'js/**/*.js',options:{specs:'test/**/*.js'}}});grunt.loadNpmTasks('grunt-contrib-jasmine');grunt.registerTask('default',['jasmine']);};\" > Gruntfile.js"
 script:
 - "grunt"

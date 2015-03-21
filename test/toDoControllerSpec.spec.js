@@ -27,12 +27,6 @@ describe('toDoController', function() {
       expect(scope.allTasks[0].task).toEqual(task[0].task)
     })
 
-    it('can not enter the same task twice.', function() {
-      setUpHelper();
-      scope.add()
-      expect(scope.allTasks.length).toEqual(1)
-    })
-
   })
 
   describe('status of task.', function() {
