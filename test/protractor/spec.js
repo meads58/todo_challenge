@@ -47,14 +47,16 @@ describe('toDo list', function() {
 
   })
 
-  it('can delete a task from the list of task if marked done', function() {
-    setUpHelper();
-    element(by.model('newTask')).sendKeys('task 2')
-    $('#new_task').click();
-    var task = element.all(by.repeater('taskItem in allTasks'));
-    task.get(0).$('#completed').click()
-    task.get(0).$('input[type="submit"]').click()
-    expect(task.get(0).$('input[type="text"]').getAttribute('value')).toBe('task 2')
+  describe('task delete', function(){
+    it('can delete a task from the list of task if marked done', function() {
+      setUpHelper();
+      element(by.model('newTask')).sendKeys('task 2')
+      $('#new_task').click();
+      var task = element.all(by.repeater('taskItem in allTasks'));
+      task.get(0).$('#completed').click()
+      task.get(0).$('a').click()
+      expect(task.get(0).$('input[type="text"]').getAttribute('value')).toBe('task 2')
+    })
   })
 
   setUpHelper= function() {

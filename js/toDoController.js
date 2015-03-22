@@ -1,6 +1,6 @@
 var toDoListApp = angular.module('toDoList', []);
 
-toDoListApp.controller('toDoController', function($scope){
+toDoListApp.controller('toDoController', function($scope, $window){
 
   $scope.allTasks = [];
 
@@ -19,6 +19,8 @@ toDoListApp.controller('toDoController', function($scope){
   $scope.removeTask = function(index) {
     if($scope.allTasks[index].done === true){
       $scope.allTasks.splice(index,1)
+    }else{
+      $window.alert('To remove task mark as done.');
     }
   }
 

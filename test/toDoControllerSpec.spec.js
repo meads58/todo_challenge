@@ -58,6 +58,14 @@ describe('toDoController', function() {
       scope.removeTask(0);
       expect(scope.allTasks.length).toBe(1)
     })
+
+    it('Displays a window alert if you try to remove tasks that are not done.', function() {
+      setUpHelper();
+      spyOn(window, 'alert')
+      scope.removeTask(0);
+      expect(window.alert).toHaveBeenCalledWith('To remove task mark as done.')
+    })
+
   })
 
   setUpHelper= function() {

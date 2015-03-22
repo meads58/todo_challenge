@@ -2,6 +2,7 @@
 <html lang="en" ng-app="toDoList">
 <head>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="CSS/styles.css">
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="js/toDoController.js"></script>
@@ -11,19 +12,23 @@
 
 <body ng-controller="toDoController">
 
-<form name="frm">
-  <input type="text" ng-model="newTask" required>
-  <button id="new_task" ng-disabled="frm.$invalid" ng-click="add()">Add item</button>
-</form>
+  <div class="container" >
 
-  <div >
-    <ul>
-      <li ng-repeat="taskItem in allTasks">
-        <input id="completed" type="checkbox" ng-change="setChecked($index)" ng-model="done">
-        <input type="text" ng-model="taskItem.task">
-        <input type="submit" ng-click="removeTask($index)">
+    <h4 class="list-group-item task">ToDo Lister</h4>
+
+    <ul class='list-group-item'>
+      <li  ng-repeat="taskItem in allTasks">
+        <input id="completed" type="checkbox" ng-change="setChecked($index)" ng-model="done"></input>
+        <input type="text" class="taskItem" ng-model="taskItem.task">
+        <a href="" ng-click="removeTask($index)"><span class="glyphicon glyphicon-remove-circle"></span></a>
       </li>
     </ul>
+
+    <form class='list-group-item' name="frm">
+      <input type="text" ng-model="newTask" required>
+      <button id="new_task" ng-disabled="frm.$invalid" ng-click="add()">Add item</button>
+    </form>
+
   <div>
 
 </body>
