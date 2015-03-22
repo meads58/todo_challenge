@@ -3,11 +3,9 @@ notifications:
 language: node_js
 node_js:
 - "0.12"
+- "0.8"
 before_install:
-- "npm install grunt-cli"
-- "npm install grunt"
-- "npm install grunt-contrib-jasmine"
-- 'npm install -g bower grunt-cli karma'
+- 'npm install'
 - 'bower install'
 script:
 
