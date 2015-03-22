@@ -10,23 +10,26 @@ toDoListApp.controller('toDoController', function($scope, $window){
       done: false
     })
     $scope.newTask = '';
-  }
+  };
 
   $scope.editTask = function(){
     $scope
-  }
+  };
 
   $scope.removeTask = function(index) {
     if($scope.allTasks[index].done === true){
       $scope.allTasks.splice(index,1)
     }else{
-      $window.alert('To remove task mark as done.');
-    }
-  }
+      $window.alert('To remove a task mark as done.');
+    };
+  };
 
   $scope.setChecked = function(index){
     $scope.allTasks[index].done = true
-  }
+  };
 
+  $scope.totalTasks = function() {
+    return $scope.allTasks.length
+  };
 
 });

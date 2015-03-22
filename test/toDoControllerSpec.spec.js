@@ -18,31 +18,37 @@ describe('toDoController', function() {
       }
     ]
 
-    it('starts with an empty task entry field', function() {
-      expect(scope.enterTask).toBeUndefined()
-    })
+    it('starts with an empty task entry field.', function() {
+      expect(scope.enterTask).toBeUndefined();
+    });
 
-    it('can add one task item', function() {
+    it('can add one task item.', function() {
       setUpHelper();
-      expect(scope.allTasks[0].task).toEqual(task[0].task)
-    })
+      expect(scope.allTasks[0].task).toEqual(task[0].task);
+    });
 
-  })
+    it('are totaled and displayed.', function(){
+      setUpHelper("get the paper");
+      setUpHelper();
+      expect(scope.totalTasks()).toEqual(2);
+    });
+
+  });
 
   describe('status of task.', function() {
 
     it('Is set to not done when created.', function(){
       setUpHelper();
-      expect(scope.allTasks[0].done).toEqual(false)
-    })
+      expect(scope.allTasks[0].done).toEqual(false);
+    });
 
     it('The status can be changed to done.', function() {
       setUpHelper();
       scope.setChecked(0);
-      expect(scope.allTasks[0].done).toEqual(true)
-    })
+      expect(scope.allTasks[0].done).toEqual(true);
+    });
 
-  })
+  });
 
   describe('remove a task.', function() {
     it('A task can be deleted from the list of tasks', function() {
@@ -50,27 +56,28 @@ describe('toDoController', function() {
       setUpHelper();
       scope.setChecked(1);
       scope.removeTask(1);
-      expect(scope.allTasks.length).toBe(1)
-    })
+      expect(scope.allTasks.length).toBe(1);
+    });
 
     it('Can only remove tasks that are done.', function() {
       setUpHelper();
       scope.removeTask(0);
       expect(scope.allTasks.length).toBe(1)
-    })
+    });
 
     it('Displays a window alert if you try to remove tasks that are not done.', function() {
       setUpHelper();
-      spyOn(window, 'alert')
+      spyOn(window, 'alert');
       scope.removeTask(0);
-      expect(window.alert).toHaveBeenCalledWith('To remove task mark as done.')
-    })
+      expect(window.alert).toHaveBeenCalledWith('To remove a task mark as done.');
+    });
 
-  })
+  });
 
-  setUpHelper= function() {
-    scope.newTask = "get some milk";
+  setUpHelper= function(task) {
+    var taskName = task || "get some milk"
+    scope.newTask = taskName;
     scope.add();
-  }
+  };
 
-})
+});
