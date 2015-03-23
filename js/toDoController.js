@@ -1,6 +1,6 @@
 var toDoListApp = angular.module('toDoList', []);
 
-toDoListApp.controller('toDoController', function($scope, $window){
+toDoListApp.controller('toDoController', function($scope, $window, $filter){
 
   $scope.allTasks = [];
 
@@ -33,7 +33,9 @@ toDoListApp.controller('toDoController', function($scope, $window){
   };
 
   $scope.filerCompleted = function() {
-
+    var j = grep(scope.allTasks, function(v){
+          return v.done === true
+      })
   };
 
 });
