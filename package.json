@@ -4,7 +4,6 @@
   "description": "Do you forget what key tasks you need to get done?, would a list be handy to keep track of these need to do tasks?",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
@@ -18,6 +17,8 @@
   },
   "homepage": "https://github.com/meads58/todo_challenge",
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-karma": "^0.10.1",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",

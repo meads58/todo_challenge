@@ -72,6 +72,18 @@ describe('toDoController', function() {
       expect(window.alert).toHaveBeenCalledWith('To remove a task mark as done.');
     });
 
+    describe('filter a task', function() {
+
+      it('to only show completed tasks.', function() {
+        setUpHelper();
+        setUpHelper("get some bread");
+        scope.setChecked(1);
+        scope.filerCompleted();
+        expect(scope.allTasks.length).toBe(1);
+      })
+
+    })
+
   });
 
   setUpHelper= function(task) {

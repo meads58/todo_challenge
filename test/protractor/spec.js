@@ -62,6 +62,19 @@ describe('toDo list', function() {
     });
   });
 
+  describe('task filtering.', function() {
+
+    it('Allows filtering to show only completed tasks', function() {
+      setUpHelper();
+      setUpHelper("get some bread");
+      var task = element.all(by.repeater('taskItem in allTasks'));
+      task.get(0).$('#completed').click();
+      $('#filterCompleted').click()
+      expect(element.all(by.repeater('taskItem in allTasks')).count()).toEqual(0);
+    })
+
+  })
+
   setUpHelper= function() {
     element(by.model('newTask')).sendKeys('get some milk')
     $('#new_task').click();

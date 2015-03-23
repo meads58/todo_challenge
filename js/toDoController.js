@@ -32,4 +32,8 @@ toDoListApp.controller('toDoController', function($scope, $window){
     return $scope.allTasks.length
   };
 
+  $scope.filerCompleted = function() {
+
+  };
+
 });
